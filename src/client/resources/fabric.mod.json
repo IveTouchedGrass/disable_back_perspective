@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "disable_back_perspective",
+  "version": "1.0.0",
+  "name": "Disable Back Perspective",
+  "description": "Disables the back third person camera mode when pressing F5",
+  "authors": [],
+  "contact": {},
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "main": [
+      "ivetouchedgrass.disable_back_perspective.DisableBackPerspective"
+    ]
+  },
+  "mixins": [
+    "disable_back_perspective.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": "*",
+    "fabric": "*",
+    "minecraft": "1.21.1"
+  }
+}
