@@ -1,8 +1,8 @@
-package ivetouchedgrass.disable_back_perspective.mixin;
+package ivetouchedgrass.disable_front_perspective.mixin;
 
 
-import ivetouchedgrass.disable_back_perspective.DisableBackPerspective;
-import ivetouchedgrass.disable_back_perspective.ModKeybinds;
+import ivetouchedgrass.disable_front_perspective.DisableFrontPerspective;
+import ivetouchedgrass.disable_front_perspective.ModKeybinds;
 import net.minecraft.client.gui.screen.Overlay;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.advancement.AdvancementsScreen;
@@ -76,19 +76,20 @@ public abstract class MixinMinecraft {
     
     @Inject(method = "handleInputEvents", at = @At("HEAD"), cancellable = true)
     private void handleInputEvents(CallbackInfo ci) {
-        if (ModKeybinds.TOGGLE_MOD.isPressed() && !DisableBackPerspective.hasModToggleKeyBeenPressed) {
-            DisableBackPerspective.isModEnabled = !DisableBackPerspective.isModEnabled;
+        if (ModKeybinds.TOGGLE_MOD.isPressed() && !DisableFrontPerspective.hasModToggleKeyBeenPressed && MinecraftClient.getInstance().player != null) {
+            DisableFrontPerspective.isModEnabled = !DisableFrontPerspective.isModEnabled;
+            MinecraftClient.getInstance().player.sendMessage(DisableFrontPerspective.isModEnabled ? Text.translatable("disable_back_perspective.enabled_mod").withColor(0x00FF00) : Text.translatable("disable_back_perspective.disabled_mod").withColor(0xFF0000), true);
         }
-        DisableBackPerspective.hasModToggleKeyBeenPressed = ModKeybinds.TOGGLE_MOD.isPressed();
-        if (!DisableBackPerspective.isModEnabled)
+        DisableFrontPerspective.hasModToggleKeyBeenPressed = ModKeybinds.TOGGLE_MOD.isPressed();
+        if (!DisableFrontPerspective.isModEnabled)
             return;
         ci.cancel();
         MinecraftClient instance = ((MinecraftClient) (Object) this);
 
-        if (instance.options.togglePerspectiveKey.wasPressed() && !DisableBackPerspective.hasPerspectiveKeyBeenPressed) {
+        if (instance.options.togglePerspectiveKey.wasPressed() && !DisableFrontPerspective.hasPerspectiveKeyBeenPressed) {
             Perspective perspective = instance.options.getPerspective();
             instance.options.setPerspective(instance.options.getPerspective().next());
-            if (instance.options.getPerspective().equals(Perspective.THIRD_PERSON_BACK) && DisableBackPerspective.isModEnabled) {
+            if (instance.options.getPerspective().equals(Perspective.THIRD_PERSON_BACK) && DisableFrontPerspective.isModEnabled) {
                 instance.options.setPerspective(Perspective.THIRD_PERSON_FRONT);
             }
             if (perspective.isFirstPerson() != instance.options.getPerspective().isFirstPerson()) {
@@ -96,7 +97,7 @@ public abstract class MixinMinecraft {
             }
         }
 
-        DisableBackPerspective.hasPerspectiveKeyBeenPressed = instance.options.togglePerspectiveKey.isPressed();
+        DisableFrontPerspective.hasPerspectiveKeyBeenPressed = instance.options.togglePerspectiveKey.isPressed();
 
         while (instance.options.togglePerspectiveKey.wasPressed()) {}
 

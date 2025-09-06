@@ -1,8 +1,8 @@
-package ivetouchedgrass.disable_back_perspective;
+package ivetouchedgrass.disable_front_perspective;
 
 import net.fabricmc.api.ModInitializer;
 
-public class DisableBackPerspective implements ModInitializer {
+public class DisableFrontPerspective implements ModInitializer {
     public static boolean hasPerspectiveKeyBeenPressed = false;
     public static boolean hasModToggleKeyBeenPressed = false;
     public static boolean isModEnabled = true;

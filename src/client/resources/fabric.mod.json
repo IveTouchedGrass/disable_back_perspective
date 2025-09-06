@@ -1,20 +1,20 @@
 {
   "schemaVersion": 1,
-  "id": "disable_back_perspective",
+  "id": "disable_front_perspective",
   "version": "1.0.0",
-  "name": "Disable Back Perspective",
-  "description": "Disables the back third person camera mode when pressing F5",
+  "name": "Disable Front Perspective",
+  "description": "Disables the front third person camera mode when pressing F5",
   "authors": [],
   "contact": {},
   "license": "MIT",
   "environment": "client",
   "entrypoints": {
     "main": [
-      "ivetouchedgrass.disable_back_perspective.DisableBackPerspective"
+      "ivetouchedgrass.disable_front_perspective.DisableFrontPerspective"
     ]
   },
   "mixins": [
-    "disable_back_perspective.mixins.json"
+    "disable_front_perspective.mixins.json"
   ],
   "depends": {
     "fabricloader": "*",
