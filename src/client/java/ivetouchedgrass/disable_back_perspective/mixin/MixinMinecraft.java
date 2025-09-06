@@ -2,10 +2,10 @@ package ivetouchedgrass.disable_back_perspective.mixin;
 
 
 import ivetouchedgrass.disable_back_perspective.DisableBackPerspective;
+import ivetouchedgrass.disable_back_perspective.ModKeybinds;
 import net.minecraft.client.gui.screen.Overlay;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.advancement.AdvancementsScreen;
-import net.minecraft.client.gui.screen.ingame.CreativeInventoryScreen;
 import net.minecraft.client.gui.screen.ingame.InventoryScreen;
 import net.minecraft.client.gui.screen.multiplayer.SocialInteractionsScreen;
 import net.minecraft.client.network.ClientPlayerEntity;
@@ -73,28 +73,30 @@ public abstract class MixinMinecraft {
 
     @Shadow
     private @Nullable Overlay overlay;
-
-    @Inject(method = "tick", at = @At("TAIL"))
-    private void tick(CallbackInfo ci) {
-        if (MinecraftClient.getInstance().options.getPerspective().equals(Perspective.THIRD_PERSON_BACK)) {
-            MinecraftClient.getInstance().options.setPerspective(Perspective.THIRD_PERSON_FRONT);
-        }
-    }
     
     @Inject(method = "handleInputEvents", at = @At("HEAD"), cancellable = true)
     private void handleInputEvents(CallbackInfo ci) {
+        if (ModKeybinds.TOGGLE_MOD.isPressed() && !DisableBackPerspective.hasModToggleKeyBeenPressed) {
+            DisableBackPerspective.isModEnabled = !DisableBackPerspective.isModEnabled;
+        }
+        DisableBackPerspective.hasModToggleKeyBeenPressed = ModKeybinds.TOGGLE_MOD.isPressed();
+        if (!DisableBackPerspective.isModEnabled)
+            return;
         ci.cancel();
         MinecraftClient instance = ((MinecraftClient) (Object) this);
 
-        if (instance.options.togglePerspectiveKey.wasPressed() && !DisableBackPerspective.hasKeyBeenPressed) {
+        if (instance.options.togglePerspectiveKey.wasPressed() && !DisableBackPerspective.hasPerspectiveKeyBeenPressed) {
             Perspective perspective = instance.options.getPerspective();
             instance.options.setPerspective(instance.options.getPerspective().next());
+            if (instance.options.getPerspective().equals(Perspective.THIRD_PERSON_BACK) && DisableBackPerspective.isModEnabled) {
+                instance.options.setPerspective(Perspective.THIRD_PERSON_FRONT);
+            }
             if (perspective.isFirstPerson() != instance.options.getPerspective().isFirstPerson()) {
                 instance.gameRenderer.onCameraEntitySet(instance.options.getPerspective().isFirstPerson() ? instance.getCameraEntity() : null);
             }
         }
 
-        DisableBackPerspective.hasKeyBeenPressed = instance.options.togglePerspectiveKey.isPressed();
+        DisableBackPerspective.hasPerspectiveKeyBeenPressed = instance.options.togglePerspectiveKey.isPressed();
 
         while (instance.options.togglePerspectiveKey.wasPressed()) {}
 
