@@ -9,7 +9,7 @@ public class ModKeybinds {
     public static KeyBinding TOGGLE_MOD;
     public static void registerKeybinds() {
         TOGGLE_MOD = KeyBindingHelper.registerKeyBinding(new KeyBinding(
-                "key.disable_back_perspective.toggle",
+                "key.disable_front_perspective.toggle",
                 InputUtil.Type.KEYSYM,
                 GLFW.GLFW_KEY_BACKSLASH,
                 "key.categories.gameplay"

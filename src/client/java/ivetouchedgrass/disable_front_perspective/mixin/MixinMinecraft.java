@@ -78,7 +78,7 @@ public abstract class MixinMinecraft {
     private void handleInputEvents(CallbackInfo ci) {
         if (ModKeybinds.TOGGLE_MOD.isPressed() && !DisableFrontPerspective.hasModToggleKeyBeenPressed && MinecraftClient.getInstance().player != null) {
             DisableFrontPerspective.isModEnabled = !DisableFrontPerspective.isModEnabled;
-            MinecraftClient.getInstance().player.sendMessage(DisableFrontPerspective.isModEnabled ? Text.translatable("disable_back_perspective.enabled_mod").withColor(0x00FF00) : Text.translatable("disable_back_perspective.disabled_mod").withColor(0xFF0000), true);
+            MinecraftClient.getInstance().player.sendMessage(DisableFrontPerspective.isModEnabled ? Text.translatable("disable_front_perspective.enabled_mod").withColor(0x00FF00) : Text.translatable("disable_front_perspective.disabled_mod").withColor(0xFF0000), true);
         }
         DisableFrontPerspective.hasModToggleKeyBeenPressed = ModKeybinds.TOGGLE_MOD.isPressed();
         if (!DisableFrontPerspective.isModEnabled)
