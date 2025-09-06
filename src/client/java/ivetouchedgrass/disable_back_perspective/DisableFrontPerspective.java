@@ -1,4 +1,4 @@
-package ivetouchedgrass.disable_front_perspective;
+package ivetouchedgrass.disable_back_perspective;
 
 import net.fabricmc.api.ModInitializer;
 

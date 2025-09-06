@@ -1,8 +1,8 @@
-package ivetouchedgrass.disable_front_perspective.mixin;
+package ivetouchedgrass.disable_back_perspective.mixin;
 
 
-import ivetouchedgrass.disable_front_perspective.DisableFrontPerspective;
-import ivetouchedgrass.disable_front_perspective.ModKeybinds;
+import ivetouchedgrass.disable_back_perspective.DisableFrontPerspective;
+import ivetouchedgrass.disable_back_perspective.ModKeybinds;
 import net.minecraft.client.gui.screen.Overlay;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.advancement.AdvancementsScreen;
@@ -78,7 +78,7 @@ public abstract class MixinMinecraft {
     private void handleInputEvents(CallbackInfo ci) {
         if (ModKeybinds.TOGGLE_MOD.isPressed() && !DisableFrontPerspective.hasModToggleKeyBeenPressed && MinecraftClient.getInstance().player != null) {
             DisableFrontPerspective.isModEnabled = !DisableFrontPerspective.isModEnabled;
-            MinecraftClient.getInstance().player.sendMessage(DisableFrontPerspective.isModEnabled ? Text.translatable("disable_front_perspective.enabled_mod").withColor(0x00FF00) : Text.translatable("disable_front_perspective.disabled_mod").withColor(0xFF0000), true);
+            MinecraftClient.getInstance().player.sendMessage(DisableFrontPerspective.isModEnabled ? Text.translatable("disable_back_perspective.enabled_mod").withColor(0x00FF00) : Text.translatable("disable_back_perspective.disabled_mod").withColor(0xFF0000), true);
         }
         DisableFrontPerspective.hasModToggleKeyBeenPressed = ModKeybinds.TOGGLE_MOD.isPressed();
         if (!DisableFrontPerspective.isModEnabled)

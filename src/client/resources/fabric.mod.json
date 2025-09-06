@@ -10,11 +10,11 @@
   "environment": "client",
   "entrypoints": {
     "main": [
-      "ivetouchedgrass.disable_front_perspective.DisableFrontPerspective"
+      "ivetouchedgrass.disable_back_perspective.DisableFrontPerspective"
     ]
   },
   "mixins": [
-    "disable_front_perspective.mixins.json"
+    "disable_back_perspective.mixins.json"
   ],
   "depends": {
     "fabricloader": "*",

@@ -1,4 +1,4 @@
-package ivetouchedgrass.disable_front_perspective;
+package ivetouchedgrass.disable_back_perspective;
 
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.option.KeyBinding;
