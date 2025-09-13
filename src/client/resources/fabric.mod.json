@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "disable_front_perspective",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "name": "Disable Front Perspective",
   "description": "Disables the front third person camera mode when pressing F5",
   "authors": [],
