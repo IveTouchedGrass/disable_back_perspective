@@ -17,9 +17,7 @@
     "disable_back_perspective.mixins.json"
   ],
   "depends": {
-    "fabricloader": "*",
     "fabric-api": "*",
-    "fabric": "*",
-    "minecraft": ">=1.21.9 <=1.21.11"
+    "minecraft": ">=26.1 <=26.1.2"
   }
 }
