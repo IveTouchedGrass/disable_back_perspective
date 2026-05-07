@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/untitled3.client.iml" filepath="$PROJECT_DIR$/.idea/modules/untitled3.client.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/untitled3.main.iml" filepath="$PROJECT_DIR$/.idea/modules/untitled3.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/untitled3.test.iml" filepath="$PROJECT_DIR$/.idea/modules/untitled3.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/disable_back_perspective.client.iml" filepath="$PROJECT_DIR$/.idea/modules/disable_back_perspective.client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/disable_back_perspective.main.iml" filepath="$PROJECT_DIR$/.idea/modules/disable_back_perspective.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/disable_back_perspective.test.iml" filepath="$PROJECT_DIR$/.idea/modules/disable_back_perspective.test.iml" />
     </modules>
   </component>
 </project>

@@ -1,6 +1,5 @@
 package ivetouchedgrass.disable_back_perspective.mixin;
 
-
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import ivetouchedgrass.disable_back_perspective.DisableFrontPerspective;
 import net.minecraft.client.option.Perspective;
