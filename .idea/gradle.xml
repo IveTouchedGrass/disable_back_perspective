@@ -4,6 +4,7 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
+        <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
@@ -11,6 +12,7 @@
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="true" />
+        <option name="myGradleHome" value="C:\Users\User\Desktop\new n fancy gradle installation" />
       </GradleProjectSettings>
     </option>
   </component>

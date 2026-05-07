@@ -14,7 +14,7 @@ public class ModKeybinds {
                 "key.disable_back_perspective.toggle",
                 InputUtil.Type.KEYSYM,
                 GLFW.GLFW_KEY_BACKSLASH,
-                "key.categories.gameplay"
+                KeyBinding.Category.MISC
         ) {
             private boolean oldPressed = false;
 
